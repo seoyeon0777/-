@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar Diary App</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .day-label {
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body class="p-4">
+
+  <h1 id="month-year" class="text-lg font-bold mb-4"></h1>
+
+  <div id="day-labels" class="grid grid-cols-7 mb-2">
+    <div class="day-label">일</div>
+    <div class="day-label">월</div>
+    <div class="day-label">화</div>
+    <div class="day-label">수</div>
+    <div class="day-label">목</div>
+    <div class="day-label">금</div>
+    <div class="day-label">토</div>
+  </div>
+
+  <div id="calendar-days" class="grid grid-cols-7 gap-2"></div>
+
+  <!-- 일기 작성 모달 -->
+  <div id="day-record-modal" class="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 hidden">
+    <div class="flex items-center justify-center h-full">
+      <div class="bg-white p-4 rounded-lg w-80">
+        <textarea id="record-textarea" class="w-full h-32 border border-gray-300 p-2 mb-2 resize-none"></textarea>
+        <!-- 파일 업로드 입력 요소 -->
+        <input type="file" id="imageUpload" accept="image/*" class="mb-2">
+        <img id="uploadedImage" class="w-full h-auto hidden mb-2" alt="Uploaded Image">
+
+        <button id="save-btn" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">저장</button>
+        <button id="delete-btn" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded ml-3">삭제</button>
+        <button id="close-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ml-2">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 이전 달, 다음 달 버튼 -->
+  <div class="flex justify-between mt-4">
+    <button id="prev-month-btn" class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded">이전 달</button>
+    <button id="next-month-btn" class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded">다음 달</button>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
